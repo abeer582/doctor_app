@@ -4,6 +4,7 @@ import '../../features/doctors/presentation/screens/doctor_details_screen.dart';
 import '../../features/doctors/presentation/screens/find_doctors_screen.dart';
 import '../../features/doctors/presentation/screens/screens/favourite_doctors_screen.dart';
 import '../../features/doctors/presentation/screens/screens/select_time.dart';
+import '../../features/doctors/presentation/screens/screens/success_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_screen.dart';
 import '../../features/onboarding/presentation/screens/splash_screen.dart';
 import '../../features/auth/presentation/screens/forgot_password_screen.dart';
@@ -47,7 +48,12 @@ GoRoute(
 path: '/select-time',
 builder: (context, state) {
 final doctor = state.extra as Doctor;
-return SelectTimeScreen(doctor: doctor);},
-)],
+return SelectTimeScreen(doctor: doctor);}),
+GoRoute(
+path: '/Success',
+builder: (context, state) {
+final data = state.extra as Map<String, dynamic>;
+return SuccessScreen(appointment: data);})
+],
   );
 }
